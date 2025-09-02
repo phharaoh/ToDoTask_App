@@ -1,15 +1,9 @@
-class TodoState {}
+class TodoState {
+  final List<Map<String, dynamic>> tasks;
 
-class InitState extends TodoState {}
+  TodoState({required this.tasks});
 
-class LoadingState extends TodoState {}
-
-class SuccessState extends TodoState {}
-
-class FailedState extends TodoState {
-  final String error;
-
-  FailedState({required this.error});
+  TodoState copyWith({List<Map<String, dynamic>>? tasks}) {
+    return TodoState(tasks: tasks ?? this.tasks);
+  }
 }
-
-class CheckedBoxState extends TodoState {}
